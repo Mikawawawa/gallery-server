@@ -17,7 +17,7 @@ app.use(compression());
 app.use(cors(require("./config").cors));
 app.set("trust proxy", 2); // trust first proxy
 
-app.use(logger("dev"));
+app.use(logger("tiny"));
 app.use(
   express.static(path.join(__dirname, "public"), {
     maxAge: 864000 // one day
