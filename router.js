@@ -144,6 +144,16 @@ router.post("/gallery/delete", async (req, res) => {
   }
 });
 
+router.post("/gallery/edit", async (req, res) => {
+  try {
+    await Collection.updateText(req.body.text, req.body.id);
+    res.json({ success: true });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false });
+  }
+});
+
 router.post("/picture/remove", async (req, res) => {
   try {
     await Collection.removePicture(req.body.pic, req.body.collection);

@@ -12,6 +12,7 @@ Collection.init(
       primaryKey: true,
       unique: true
     },
+    description: Sequelize.TEXT(),
     name: Sequelize.STRING(100)
   },
   { sequelize, modelName: "Collection" }
@@ -20,10 +21,15 @@ Collection.init(
 exports.createCollection = name => {
   return Collection.create({
     id: Util.uuid(),
-    name
+    name,
+    text: ""
   });
   // .then(res => console.log(res.dataValues))
   // .catch(e => console.log(e.sqlMessage, e.sqlState));
+};
+
+exports.updateText = (text, id) => {
+  return Collection.update({ description: text }, { where: { id } });
 };
 
 exports.addPicture = async (collection, pictures) => {
@@ -40,7 +46,8 @@ exports.detail = async collection => {
 
   return {
     list: (await theCollection.getPictures()).map(item => item.dataValues),
-    name: theCollection.dataValues.name
+    name: theCollection.dataValues.name,
+    description: theCollection.dataValues.description
   };
 };
 
@@ -48,16 +55,18 @@ exports.home = async collection => {
   const theCollection = await Collection.findOne({
     where: { name: "home" }
   });
-  console.log(theCollection);
+  // console.log(theCollection);
   if (!theCollection) {
     return {
       list: [],
-      name: "home"
+      name: "home",
+      description: ""
     };
   }
   return {
     list: (await theCollection.getPictures()).map(item => item.dataValues),
-    name: theCollection.dataValues.name
+    name: theCollection.dataValues.name,
+    description: theCollection.dataValues.description
   };
 };
 
