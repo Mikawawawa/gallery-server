@@ -2,10 +2,10 @@ var config = {
   dialect: "mysql",
   database: "gallery",
   username: "root",
-  password: "Ssq03230202",
-  host: "129.204.218.96:3306",
+  password: "Jyf889988",
+  host: "49.232.7.138:3306",
   port: 3306,
-  http: 4001,
+  http: 8080,
   cors: {
     credentials: true,
     exposedHeaders: ["Content-Disposition"],
@@ -17,7 +17,8 @@ var config = {
       /\d{0,3}.\d{0,3}.\d{0,3}.\d{0,3}:5001/,
       /\d{0,3}.\d{0,3}.\d{0,3}.\d{0,3}:5002/,
       /\d{0,3}.\d{0,3}.\d{0,3}.\d{0,3}:4000/,
-      /\d{0,3}.\d{0,3}.\d{0,3}.\d{0,3}:8080/
+      /\d{0,3}.\d{0,3}.\d{0,3}.\d{0,3}:8080/,
+      /\d{0,3}.\d{0,3}.\d{0,3}.\d{0,3}:80/
     ]
   },
   redisTick: 10
