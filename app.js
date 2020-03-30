@@ -7,15 +7,22 @@ const models = require("./models/index");
 
 const cors = require("cors");
 const logger = require("morgan");
+const compression = require("compression");
 
 const indexRouter = require("./router");
 
 const app = express();
+
+app.use(compression());
 app.use(cors(require("./config").cors));
 app.set("trust proxy", 2); // trust first proxy
 
 app.use(logger("dev"));
-app.use(express.static(path.join(__dirname, "public")));
+app.use(
+  express.static(path.join(__dirname, "public"), {
+    maxAge: 864000 // one day
+  })
+);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
