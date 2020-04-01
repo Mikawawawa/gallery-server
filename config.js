@@ -11,6 +11,7 @@ var config = {
     exposedHeaders: ["Content-Disposition"],
     origin: [
       // "http://192.168.0.103:3000",
+      "http://jianyangfan.cn",
       /\d{0,3}.\d{0,3}.\d{0,3}.\d{0,3}/,
       /\d{0,3}.\d{0,3}.\d{0,3}.\d{0,3}:8080/,
       /\d{0,3}.\d{0,3}.\d{0,3}.\d{0,3}:3000/,
