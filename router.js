@@ -27,7 +27,6 @@ router.get("/columns", async (req, res) => {
         attributes: ["name", "id"]
       })
     ]);
-    console.log(collections);
     res.json({
       success: true,
       data: [
@@ -85,6 +84,7 @@ router.get("/article/detail", async (req, res) => {
       })
     });
   } catch (error) {
+    console.log(error);
     res.json({ success: false });
   }
 });
@@ -129,6 +129,7 @@ router.get("/gallery/detail", async (req, res) => {
       data: await Collection.detail(req.query.id)
     });
   } catch (error) {
+    console.log(error);
     res.json({ success: false });
   }
 });

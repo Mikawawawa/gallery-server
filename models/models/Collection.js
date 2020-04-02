@@ -45,7 +45,11 @@ exports.detail = async collection => {
   });
 
   return {
-    list: (await theCollection.getPictures()).map(item => item.dataValues),
+    list: (
+      await theCollection.getPictures({
+        order: [["createdAt", "ASC"]]
+      })
+    ).map(item => item.dataValues),
     name: theCollection.dataValues.name,
     description: theCollection.dataValues.description
   };
